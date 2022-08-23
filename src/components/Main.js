@@ -4,8 +4,6 @@ import { useState } from 'react';
 import {Navbar} from ".//Navbar/Navbar"
 import BarChart from './/BarChart';
 import {UserData} from './/Data'
-
-
 function Main(){
   const [userData] = useState({
     labels:UserData.map((data)=> data.name),

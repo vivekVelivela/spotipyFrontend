@@ -6,10 +6,10 @@ import BarChart from './/BarChart';
 import { playlist_followers } from './/Data'
 function Main(){
   const [playlist_followers] = useState({
-    labels:playlist_followers.map((data)=> data.name),
+    labels:playlist_followers.map((playlist_followers)=> playlist_followers.name),
     datasets: [{
       label: "Followers",
-      data: playlist_followers.map((data) => data.followers)
+      data: playlist_followers.map((playlist_followers) => playlist_followers.followers)
     }]
   })
 

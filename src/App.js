@@ -1,12 +1,12 @@
 import React from 'react';
 import './App.css';
-// import Main from './components/Main';
+import Main from './components/Main';
 
   class App extends React.Component {
     render() {
       return(
         <React.Fragment>
-       <div> Hello world </div>
+          <Main></Main>
        </React.Fragment>
        
       ) 

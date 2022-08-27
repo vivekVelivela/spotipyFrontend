@@ -1,15 +1,17 @@
 import React from 'react';
-// import './App.css';
+import '../App.css';
 import { useState } from 'react';
-import {Navbar} from ".//Navbar/Navbar"
+import {Navbar} from ".//Navbar/Navbar";
+import { UserData } from "../Data";
 import BarChart from './/BarChart';
 import { playlist_followers } from './/Data'
+import { track_popularity } from ".//Data";
 function Main(){
-  const [playlist_followers] = useState({
-    labels:playlist_followers.map((playlist_followers)=> playlist_followers.name),
+  const [UserData] = useState({
+    labels:playlist_followers.map((data)=> data.name),
     datasets: [{
       label: "Followers",
-      data: playlist_followers.map((playlist_followers) => playlist_followers.followers)
+      data: playlist_followers.map((data) => data.followers)
     }]
   })
 
@@ -17,7 +19,7 @@ function Main(){
     <div className='Main'>
       <Navbar></Navbar>
       <div style={{width: 700}}>
-      <BarChart chartData={playlist_followers}/>
+      <BarChart chartData={UserData}/>
       </div>
     </div>
   )

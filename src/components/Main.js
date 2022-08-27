@@ -3,13 +3,13 @@ import React from 'react';
 import { useState } from 'react';
 import {Navbar} from ".//Navbar/Navbar"
 import BarChart from './/BarChart';
-import { userData } from './/Data'
+import { playlist_followers } from './/Data'
 function Main(){
-  const [userData] = useState({
-    labels:userData.map((data)=> data.name),
+  const [playlist_followers] = useState({
+    labels:playlist_followers.map((data)=> data.name),
     datasets: [{
-      label: "Users Gained",
-      data: userData.map((data) => data.followers)
+      label: "Followers",
+      data: playlist_followers.map((data) => data.followers)
     }]
   })
 
@@ -17,7 +17,7 @@ function Main(){
     <div className='Main'>
       <Navbar></Navbar>
       <div style={{width: 700}}>
-      <BarChart chartData={userData}/>
+      <BarChart chartData={playlist_followers}/>
       </div>
     </div>
   )

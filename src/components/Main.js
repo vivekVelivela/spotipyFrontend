@@ -2,7 +2,6 @@ import React from 'react';
 import '../App.css';
 import { useState } from 'react';
 import {Navbar} from ".//Navbar/Navbar";
-import { UserData } from "../Data";
 import BarChart from './/BarChart';
 import { playlist_followers } from './/Data'
 import { track_popularity } from ".//Data";

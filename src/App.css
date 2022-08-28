@@ -3,7 +3,7 @@
 }
 .BarChart {
     height:500px;
-    width: auto;
+    width: 500px;
   
 }
 .App-logo {
@@ -11,14 +11,28 @@
   height: 40vmin;
 }
 
+.box-shadow-md {
+  box-shadow: 1px 2px 9px #0c0c0c00;
+  margin: 3em;
+  padding: 3em;
+  border-radius: 40px;
+}
 
 .container {
-  border: '4px solid green';
-  display: 'inline-flex';
+  border: '10px';
+  display: 'solid';
 }
 
 .background-red {
   background-color: rgba(40, 38, 151, 0.093);
+}
+.hero .overlay {
+	height: 100%;
+	position: absolute;
+	z-index: 3;
+	top: 0;
+	left: 0;
+	width: 100%;
 }
 .App-header {
   background-color: #282c34;

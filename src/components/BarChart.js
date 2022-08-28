@@ -16,7 +16,15 @@ function BarChart({ chartData} )
         display: false,
       },
     },
-  }
+  },
+  plugins: {title: {
+    display: true,
+    align: 'centre',
+    text: 'Playlist Followers',
+    font: {
+      size: 25
+    }
+}}
 }}/>;
 }
 

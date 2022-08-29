@@ -11,26 +11,11 @@ import { track_popularity } from "./Data";
 import Grid from '@mui/material/Grid'; // Grid version 1
 import { Container } from '@mui/system';
 import { Box } from '@material-ui/system';
+import {Link as Scroll} from 'react-scroll'
+import {AppBar,IconButton} from "@material-ui/core";
 
 function Main(){
-  // const [UserData] = useState({
-  //   labels:playlist_followers.map((data)=> data.name),
-  //   datasets: [{
-  //     label: "Followers",
-  //     data: playlist_followers.map((data) => data.followers),
-  //     backgroundColor: [
-  //       "rgba(75,192,192,1)",
-  //       "#ecf0f1",
-  //       "#50AF95",
-  //       "#f3ba2f",
-  //       "#2a71d0",
-  //     ],
-  //     borderColor: "white",
-  //     borderWidth: 1,
-  //   },
-  // ],
-  // }
-  // );
+  
 
 
   return(
@@ -40,12 +25,13 @@ function Main(){
         
         <video src={videoBg} autoPlay loop muted />
         <Navbar></Navbar>
+        
         <Dashboard></Dashboard>
         <div className="content">
-          <h1 style={{ color: "green" }}>Welcome to Spotify Visualisation</h1>
-          <h3 style={{ color: "white" }}>by Vivek Velivela</h3>
-          <h4 style={{ color: "green" }}>Please scroll down</h4>
-        
+          <Scroll to = "place-to-visit" smooth={true}>
+          <IconButton style={{ color: "green" }}>Welcome to Spotify Visualisation</IconButton>
+          <h3 style={{ color: "white", fontFamily: "Nunito", textAlign:"center" }}>by Vivek Velivela</h3>
+          </Scroll>
 
         </div>
     </div>

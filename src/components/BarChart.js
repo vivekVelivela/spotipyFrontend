@@ -20,7 +20,7 @@ function BarChart({ chartData} )
   plugins: {title: {
     display: true,
     align: 'centre',
-    text: 'Playlist Followers',
+    text: 'Artist Followers',
     font: {
       size: 25
     }

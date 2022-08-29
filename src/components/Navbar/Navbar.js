@@ -6,9 +6,9 @@ import {AppBar,IconButton} from "@material-ui/core";
 export const Navbar = () => {
     return (
         
-        <AppBar position = 'dynamic' color='transparent' elevation={0}>
+        <AppBar position = 'dynamic' color='transparent' elevation={0} >
             <Toolbar>
-                <Typography align="center" >
+                <Typography  style={{fontFamily: 'Nunito', display: 'inline-block', textAlign:'center'}}>
                     SPOTIFY VISUALISATION
                 </Typography>
             </Toolbar>

@@ -3,19 +3,19 @@ import '../App.css';
 import { useState } from 'react';
 import BarChart from './BarChart';
 import { playlist_followers } from './Data'
-import { shadows } from '@mui/system';
+import { track_details } from './Data'
 import { track_popularity } from "./Data";
 import { artist_popularity } from "./Data";
+import { country } from './Data';
 import Grid from '@mui/material/Grid'; // Grid version 1
 import LineChart from './LineChart'
-import PieChart from './PieChart';
 import HorizontalBarChart from './HorizontalBarChart'
 
 
 
 
 function Dashboard(){
-  const [UserData] = useState({
+  const [PlaylistFollowers] = useState({
     labels:playlist_followers.map((data)=> data.name),
     datasets: [{
       label: "Followers",
@@ -35,7 +35,8 @@ function Dashboard(){
   });
 
 
-  const [UserData1] = useState({
+  var str = 'The below graphs represents TOP 10' + {country} + 'spotify featured playlists with highest number of followers along with TOP 10 popular artists and popular tracks from those respective playlists.'
+  const [trackPopularity] = useState({
     labels:track_popularity.map((data)=> data.track),
     datasets: [{
       label: "popularity",
@@ -48,7 +49,7 @@ function Dashboard(){
   ],
   });
 
-  const [UserData2] = useState({
+  const [artistPopularity] = useState({
     labels:artist_popularity.map((data)=> data.name),
     datasets: [{
       label: "popularity",
@@ -60,21 +61,94 @@ function Dashboard(){
     },
   ],
   });
+
+
+  const [trackDetails] = useState({
+    labels:track_details.map((data)=> data.track_name),
+    datasets: [{
+      label: "danceability",
+      data: track_details.map((data) => data.danceability),
+      backgroundColor: ['rgba(255, 99, 132, 0.2)','rgba(255, 159, 64, 0.2)','rgba(255, 205, 86, 0.2)','rgba(75, 192, 192, 0.2)','rgba(54, 162, 235, 0.2)','rgba(153, 102, 255, 0.2)','rgba(201, 203, 207, 0.2)','rgba(200, 92, 92, 0.2)','rgba(30, 162, 35, 0.2)','rgba(13, 202, 255, 0.2)','rgba(201, 3, 207, 0.2)','rgba(31, 203, 202, 0.2)'],
+      fill: true,
+      borderColor: ['rgb(255, 99, 132)','rgb(255, 159, 64)','rgb(255, 205, 86)','rgb(75, 192, 192)','rgb(54, 162, 235)','rgb(153, 102, 255)','rgb(101, 3, 107)','rgb(255, 99, 132)','rgb(30, 162, 35)','rgb(21, 203, 207)','rgb(231, 103, 202)','rgb(13, 202, 255)'],
+      borderWidth: 1,
+    },
+    {
+      label: "Energy",
+      data: track_details.map((data) => data.energy),
+      backgroundColor: ['rgba(255, 99, 132, 0.2)','rgba(255, 159, 64, 0.2)','rgba(255, 205, 86, 0.2)','rgba(75, 192, 192, 0.2)','rgba(54, 162, 235, 0.2)','rgba(153, 102, 255, 0.2)','rgba(201, 203, 207, 0.2)','rgba(200, 92, 92, 0.2)','rgba(30, 162, 35, 0.2)','rgba(13, 202, 255, 0.2)','rgba(201, 3, 207, 0.2)','rgba(31, 203, 202, 0.2)'],
+      fill: true,
+      borderColor: ['rgb(255, 99, 132)','rgb(255, 159, 64)','rgb(255, 205, 86)','rgb(75, 192, 192)','rgb(54, 162, 235)','rgb(153, 102, 255)','rgb(101, 3, 107)','rgb(255, 99, 132)','rgb(30, 162, 35)','rgb(21, 203, 207)','rgb(231, 103, 202)','rgb(13, 202, 255)'],
+      borderWidth: 1,
+    }
+  ]
+  });
+  const artistPopularityStyle = 
+    {
+      responsive:true,
+      scales: {
+    x: {
+      grid: {
+        display: false,
+      },
+    },
+    y: {
+      grid: {
+        display: false,
+      },
+    },
+  },
+  plugins: {title: {
+    display: true,
+    align: 'centre',
+    text: 'Artist Popularity',
+    font: {
+      size: 25
+    }
+}}
+}
+  
+  const trackDetailsStyle = 
+    {
+      responsive:true,
+      scales: {
+    x: {
+      grid: {
+        display: false,
+      },
+    },
+    y: {
+      grid: {
+        display: false,
+      },
+    },
+  },
+  plugins: {title: {
+    display: true,
+    align: 'centre',
+    text: 'Track Details',
+    font: {
+      size: 25
+    }
+}}
+}
   return(
     
         <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 2}} alignItems="stretch" id = "place-to-visit">
           <Grid item xs={12} m = {3} style={{  backgroundColor: '#ecf0f1' }} className = 'box-shadow-md'>
-          <p style={{ color: "black", margin:10 , fontFamily: 'Nunito', textAlign: 'center'}}>The below graphs represents
-           TOP 10 US spotify featured playlists with highest number of followers along with TOP 10 popular artists and popular tracks from those respective playlists.</p>
+          <p style={{ color: "black", margin:10 , fontFamily: 'Nunito', textAlign: 'center'}}>The below graphs represents TOP 10 {country} spotify featured playlists with highest number of followers along with TOP 10 popular artists and popular tracks from those respective playlists.</p>
             </Grid>
-          <Grid item xs={6} m = {0} style={{  backgroundColor: '#ecf0f1' }} className = 'box-shadow-md'>
-            <BarChart chartData={UserData} />
+          <Grid item xs={12} md ={6} m = {0} style={{  backgroundColor: '#ecf0f1' }} className = 'box-shadow-md'>
+            <BarChart chartData={PlaylistFollowers} />
             </Grid>
-            <Grid item xs={6} m = {0} style={{  backgroundColor: '#ecf0f1' }} className = 'box-shadow-md'>
-            <HorizontalBarChart chartData={UserData1} />
+            <Grid item xs={12} md ={6} m = {0} style={{  backgroundColor: '#ecf0f1' }} className = 'box-shadow-md'>
+            <HorizontalBarChart chartData={trackPopularity} />
             </Grid> 
-            <Grid item xs={6} m = {0} style={{  backgroundColor: '#ecf0f1' }} className = 'box-shadow-md'>
-            <LineChart chartData={UserData2} />
+            <Grid item xs={12} md ={6} m = {0} style={{  backgroundColor: '#ecf0f1' }} className = 'box-shadow-md'>
+            <LineChart chartData={artistPopularity} options ={artistPopularityStyle}/>
+            </Grid> 
+            <Grid item xs={12} md ={6} m = {0} style={{  backgroundColor: '#ecf0f1' }} className = 'box-shadow-md'>
+            <LineChart chartData={trackDetails}  options = {trackDetailsStyle}/>
             </Grid>  
         </Grid>
         

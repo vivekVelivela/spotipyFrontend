@@ -20,7 +20,7 @@ function HorizontalBarChart({ chartData } )
   plugins: {title: {
     display: true,
     align: 'centre',
-    text: 'Track Followers',
+    text: 'Track Popularity',
     font: {
       size: 25
     }

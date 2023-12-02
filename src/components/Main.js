@@ -23,7 +23,7 @@ function Main(){
         
         <div className="content">
           <Scroll to = "place-to-visit" smooth={true}>
-          <IconButton style={{ color: "green" }}>Welcome to Spotify Visualisation</IconButton>
+          <IconButton style={{ color: "green" }}>Welcome to Spotify Visualisation [Under Development]</IconButton>
           {/* <h3 style={{ color: "white", fontFamily: "Nunito", textAlign:"center" }}>by Vivek Velivela</h3> */}
           </Scroll>
           
